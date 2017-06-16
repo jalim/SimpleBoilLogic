@@ -1,4 +1,4 @@
-# craftbeerpiboil
+# SimpleBoilLogic
 Boil logic for craftbeerpi
 
 Simple logic to set the heater power setting during the ramp up period and then have it scaled back to a boiling power setting.
