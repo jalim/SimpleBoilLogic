@@ -6,7 +6,7 @@ from modules.core.controller import KettleController
 from modules.core.props import Property
 
 @cbpi.controller
-class BoilLogic(KettleController):
+class SimpleBoilLogic(KettleController):
 
     ramp_power = Property.Number("Ramp Up Power %", True, 100)
     boil_power = Property.Number("Boil Power %", True, 70)
