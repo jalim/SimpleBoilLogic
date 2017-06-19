@@ -1,6 +1,8 @@
 from modules import cbpi
 from modules.core.controller import KettleController
-from modules.core.props import Property
+from modules.core.props import Property, StepProperty
+from modules.core.step import StepBase
+import time
 
 
 @cbpi.controller
@@ -25,7 +27,8 @@ class SimpleBoilLogic(KettleController):
             r_limit = self.get_target_temp()
             if temp < r_limit:
                 self.heater_on(r_power)
+                self.actor_power(r_power)
             if temp >= r_limit:
                 self.heater_on(b_power)
-            self.sleep(5)
-            self.heater_off()
+                self.actor_power(b_power)
+            self.sleep(1)
