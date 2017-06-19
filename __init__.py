@@ -81,4 +81,5 @@ class BoilStep(StepBase):
 
         # Check if timer finished and go to next step
         if self.is_timer_finished() == True:
+            cbpi.notify("Boil Finished", "Your Boil Step Has Finished", timeout=None)
             self.next()
