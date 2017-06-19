@@ -27,10 +27,11 @@ class SimpleBoilLogic(KettleController):
             r_limit = self.get_target_temp()
             if temp < r_limit:
                 self.heater_on(r_power)
+                self.actor_power(b_power)
             if temp >= r_limit:
                 self.heater_on(b_power)
+                self.actor_power(b_power)
             self.sleep(5)
-            self.heater_off()
 
 @cbpi.step
 class BoilStep(StepBase):
