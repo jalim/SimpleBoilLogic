@@ -25,10 +25,10 @@ class SimpleBoilLogic(KettleController):
         while self.is_running():
             temp = self.get_temp()
             r_limit = self.get_target_temp()
-            if temp < r_limit:
+            if temp < r_limit and r_limit > 0:
                 self.heater_on(r_power)
                 self.actor_power(r_power)
-            if temp >= r_limit:
+            if temp >= r_limit and r_limit > 0:
                 self.heater_on(b_power)
                 self.actor_power(b_power)
             self.sleep(1)
